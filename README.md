@@ -2,7 +2,7 @@
 
 # Olá, eu sou o Renato 👋
 
-Desenvolvedor full-stack com foco em Next.js, arquitetura de sistemas e produtos com IA.
+Desenvolvedor front-end & full-stack com foco em Next.js, React, Typescript, arquitetura de sistemas e produtos com IA.
 
 [![GitHub followers](https://img.shields.io/github/followers/renatomf?style=social)](https://github.com/renatomf)
 
