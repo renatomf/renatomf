@@ -2,7 +2,7 @@
 
 # Olá, eu sou o Renato 👋
 
-Desenvolvedor front-end & full-stack com foco em Next.js, React, Typescript, arquitetura de sistemas e produtos com IA.
+Desenvolvedor front-end & full-stack com foco em Next.js, React, TypeScript, arquitetura de sistemas e produtos com IA.
 
 [![GitHub followers](https://img.shields.io/github/followers/renatomf?style=social)](https://github.com/renatomf)
 
@@ -10,78 +10,67 @@ Desenvolvedor front-end & full-stack com foco em Next.js, React, Typescript, arq
 
 ---
 
-### 🔴 Sistemas com problema de engenharia próprio
+## Repositórios por profundidade técnica
 
-Projetos onde a parte difícil foi **construída**, não apenas consumida de uma plataforma pronta.
-
-| # | Projeto | Destaque arquitetural |
-|---|---|---|
-| 1 | [nextjs-nodebase](https://github.com/renatomf/nextjs-nodebase) | Motor de execução durável (Inngest) com resolução de grafo de nós — infraestrutura de execução própria, não só orquestração de serviços |
-| 2 | [nextjs-echo](https://github.com/renatomf/nextjs-echo) | Monorepo com 2 aplicações + backend realtime compartilhado (Convex) + RAG + tool calling + escalonamento pra humano |
-| 3 | [nextjs-resonance](https://github.com/renatomf/nextjs-resonance) | Storage assinado (R2), billing por uso e cliente de API auto-gerado a partir de um spec OpenAPI externo |
-| 4 | [nextjs-meet-ai](https://github.com/renatomf/nextjs-meet-ai) | Separação entre resposta de voz em tempo real (síncrono) e resumo pós-reunião (assíncrono) |
-| 5 | [nextjs-craftAI](https://github.com/renatomf/nextjs-craftAI) | Agente de IA que escreve e executa código em sandbox isolado (E2B), com preview ao vivo |
-| 6 | [nextjs-teamflow](https://github.com/renatomf/nextjs-teamflow) | Plataforma de mensagens em equipe com segurança de API real: oRPC + Arcjet (bot/rate-limit) + Kinde |
-| 7 | [sendkit](https://github.com/renatomf/sendkit) | Uma lógica core exposta por 3 superfícies (CLI / MCP stdio / MCP HTTP+OAuth) |
-
-### 🟠 Peça interna que exige entender um problema difícil
-
-O produto resolve algo já conhecido, mas tem um componente que exige domínio de um problema técnico não trivial.
-
-| # | Projeto | O problema difícil | Por que não é trivial |
-|---|---|---|---|
-| 8 | [nextjs-docly](https://github.com/renatomf/nextjs-docly) | Edição concorrente sem conflito, via CRDT (Yjs sobre Liveblocks) | Múltiplos usuários editam o mesmo texto ao mesmo tempo e o merge acontece **sem lock e sem "última escrita vence"** — o algoritmo precisa convergir para o mesmo estado em qualquer ordem de chegada dos eventos |
-| 9 | [nextjs-sketchpad](https://github.com/renatomf/nextjs-sketchpad) | Mesmo problema de CRDT, aplicado a um **grafo de objetos geométricos** (formas, camadas, posição) em vez de texto linear | Sincronizar texto é difícil; sincronizar posição/z-index/seleção de múltiplos objetos 2D em tempo real, com undo/redo compartilhado, é uma classe de problema maior |
-| 10 | [nextjs-vidflow](https://github.com/renatomf/nextjs-vidflow) | Pipeline assíncrono de mídia: upload → transcodificação externa (Mux) → callback assinado (Svix) → job em fila (Upstash Workflow) → geração de metadados por IA → publicação | Cada etapa pode falhar ou atrasar independente das outras — o desafio é orquestrar um pipeline de **múltiplos sistemas externos com estados intermediários**, não só chamar uma API |
-| 11 | [nextjs-temu-clone](https://github.com/renatomf/nextjs-temu-clone) | Autenticação implementada do zero (hashing e tokens de sessão via primitivas Oslo, estilo Lucia Auth) em vez de um provedor terceirizado | Fazer auth "funcionar" é fácil; fazer auth **segura** (hashing correto, expiração de sessão, proteção contra fixation/replay) exige entender criptografia aplicada, não só integrar um SDK |
-
-### 🟡 Pipelines assíncronos e múltiplas integrações
-
-Aplicações onde vários serviços externos precisam ser orquestrados em conjunto, com dados fluindo entre eles em etapas.
-
-| # | Projeto | Destaque arquitetural |
-|---|---|---|
-| 12 | [nextjs-skillup](https://github.com/renatomf/nextjs-skillup) | Vídeo (Mux) + pagamento único (Stripe) + fluxo de publicação com validação de requisitos mínimos |
-| 13 | [nextjs-signalist](https://github.com/renatomf/nextjs-signalist) | Jobs em background (Inngest) consultando API externa de mercado e disparando notificações por e-mail |
-| 14 | [nextjs-flux](https://github.com/renatomf/nextjs-flux) | Mensagens em tempo real + voz/vídeo (LiveKit) + fallback automático WebSocket→polling |
-
-### 🟢 Fluxos completos, com integrações padrão de mercado
-
-Aplicações funcionais que cobrem um caso de uso real ponta a ponta, com boas práticas de integração já estabelecidas na indústria.
-
-| # | Projeto | Destaque arquitetural |
-|---|---|---|
-| 15 | [nextjs-havn](https://github.com/renatomf/nextjs-havn) | Busca com mapa interativo (Leaflet) e verificação de conflito de disponibilidade nas reservas |
-| 16 | [nextjs-taskify](https://github.com/renatomf/nextjs-taskify) | Drag-and-drop de tarefas com organizações multi-tenant, limite de plano e upgrade via Stripe |
-| 17 | [nextjs-lingo](https://github.com/renatomf/nextjs-lingo) | Sistema de gamificação (pontos/vidas) com painel administrativo (React Admin) e assinatura via Stripe |
-| 18 | [nextjs-blip](https://github.com/renatomf/nextjs-blip) | Mensagens em tempo real via Pusher, com upload de imagem (Cloudinary) e status de presença |
-
-### 🔵 Fundamentos sólidos, sem desafio de arquitetura em destaque
-
-Projetos que funcionam bem e cobrem o essencial de um app real (auth, banco, pagamento, upload), mas onde nenhuma peça específica exige uma solução de engenharia fora do padrão — o valor aqui está mais na **execução limpa do óbvio** do que em resolver algo difícil.
-
-| # | Projeto | O que entrega | O que faltaria para subir de faixa |
-|---|---|---|---|
-| 19 | [nextjs-beatstream](https://github.com/renatomf/nextjs-beatstream) | Upload e streaming de áudio, player client-side, curtidas e assinatura via Stripe — um app de mídia completo e funcional | Hoje o áudio é servido direto do storage; algo como streaming adaptativo, fila de reprodução persistida entre sessões, ou processamento de áudio (normalização, waveform) elevaria a complexidade real |
-| 20 | [nextjs-polaris](https://github.com/renatomf/nextjs-polaris) | Editor de código com IA integrada, com uma stack rica (CodeMirror, AI SDK, Convex, Inngest) | Só analisei o `package.json` e a estrutura de pastas, não o código da parte que mais importa: **como o agente de IA de fato edita o código no editor**. Sem ver essa peça implementada, não dá pra confirmar se ela justifica ficar entre os projetos de nível mais alto — pode ser que sim, mas ainda não está provado |
-
-### ⚪ Estágio inicial
-
-| # | Projeto | Status |
-|---|---|---|
-| 21 | [nextjs-medimeet](https://github.com/renatomf/nextjs-medimeet) | Só auth + formulários + Prisma configurados — agendamento e videochamada ainda não implementados |
-| 22 | [nextjs-streamly](https://github.com/renatomf/nextjs-streamly) | Só scaffold de autenticação + UI base — streaming ao vivo ainda não implementado |
+Organizados em seis níveis, do sistema mais sofisticado ao mais recente em desenvolvimento.
 
 ---
 
-## 🛠️ Stack que mais uso
+### Nível I — Arquitetura de Sistemas
+*Infraestrutura construída, não apenas consumida de uma plataforma pronta.*
 
-`Next.js` · `TypeScript` · `React` · `tRPC` / `oRPC` · `Prisma` · `PostgreSQL` · `Convex` · `Clerk` · `Inngest` · `Tailwind CSS`
+| # | Projeto | Stack | Destaque arquitetural |
+|---|---|---|---|
+| 1 | [Nodebase](https://github.com/renatomf/nextjs-nodebase) | Next.js 16 · React Flow · tRPC · Inngest · Prisma · PostgreSQL | Motor de automação de workflows: um canvas de nós conecta gatilhos, IA e integrações num fluxo executável, processado por um motor de execução durável — com retomada automática, histórico completo e credenciais criptografadas. A aplicação constrói a própria infraestrutura de orquestração, em vez de delegar isso a uma plataforma pronta |
+| 2 | [Echo](https://github.com/renatomf/nextjs-echo) | Next.js 15 · Turborepo · Convex · Clerk · Vapi | Plataforma de atendimento com IA: duas aplicações (widget + painel) compartilham um backend reativo em tempo real; o agente responde com base em busca semântica sobre uma base de conhecimento própria, aciona ferramentas externas e escala para um humano quando necessário |
+| 3 | [Resonance](https://github.com/renatomf/nextjs-resonance) | Next.js 16 · tRPC · Prisma · Cloudflare R2 · Polar | SaaS multi-tenant de texto-para-voz com clonagem de voz; uploads e downloads de áudio acontecem via URLs pré-assinadas direto no storage (sem proxy pelo servidor), billing por uso e cliente de API auto-gerado a partir de um spec OpenAPI externo |
+| 4 | [Meet AI](https://github.com/renatomf/nextjs-meet-ai) | Next.js 15 · Drizzle ORM · Neon · Stream Video · OpenAI Realtime · Inngest | Agentes de IA que participam de videochamadas ao vivo, respondendo por voz em tempo real; a resposta síncrona (baixa latência) é isolada do resumo pós-reunião, processado de forma assíncrona — uma separação deliberada entre o que precisa responder na hora e o que pode esperar |
+| 5 | [CraftAI](https://github.com/renatomf/nextjs-craftAI) | Next.js 15 · tRPC · Prisma · E2B · Inngest Agent Kit | Gerador de aplicativos por IA: o usuário descreve o app, um agente escreve e edita o código dentro de um sandbox isolado com servidor de desenvolvimento ao vivo, e o preview funcional aparece em tempo real ao lado do código gerado |
+| 6 | [TeamFlow](https://github.com/renatomf/nextjs-teamflow) | Next.js 16 · oRPC · Prisma · Kinde · Arcjet · Tiptap | Plataforma de mensagens em equipe (estilo Slack) com segurança de API como cidadã de primeira classe: toda requisição passa por proteção contra bots e rate limiting (Arcjet) antes de tocar no banco, com updates otimistas via TanStack Query |
+| 7 | [SendKit](https://github.com/renatomf/sendkit) | Bun · TypeScript · Hono · Zod · Model Context Protocol · Clerk | Uma única lógica de negócio (`sendTelegramMessage`) exposta por três superfícies — CLI, servidor MCP local (stdio) e servidor MCP remoto (HTTP com OAuth) — todas consumindo o mesmo pacote `core`, sem dependência de I/O além de `fetch` |
 
----
+### Nível II — Complexidade de Domínio
+*O produto resolve algo já conhecido no mercado, mas com um componente interno que exige domínio de um problema técnico específico e não trivial.*
 
-<div align="center">
+| # | Projeto | Stack | Destaque arquitetural |
+|---|---|---|---|
+| 8 | [Docly](https://github.com/renatomf/nextjs-docly) | Next.js 15 · Liveblocks (Yjs/CRDT) · Tiptap · Convex · Clerk | Editor de documentos colaborativo (estilo Google Docs): múltiplas pessoas editam o mesmo texto simultaneamente, e o merge converge para o mesmo estado final independente da ordem de chegada dos eventos — sem lock, sem "última escrita vence" |
+| 9 | [Sketchpad](https://github.com/renatomf/nextjs-sketchpad) | Next.js 14 · Liveblocks (Yjs/CRDT) · Convex · Clerk · perfect-freehand | Quadro branco colaborativo (estilo Miro) aplicando o mesmo princípio de CRDT a um grafo de objetos geométricos — formas, camadas, posição e seleção sincronizados em tempo real entre participantes, com undo/redo compartilhado |
+| 10 | [VidFlow](https://github.com/renatomf/nextjs-vidflow) | Next.js 15 · Drizzle ORM · Neon · Clerk · Mux · Upstash Workflow · Svix | Plataforma de hospedagem de vídeo (estilo YouTube) com um pipeline assíncrono completo: upload → transcodificação externa → callback assinado → job em fila → geração de metadados por IA → publicação, orquestrando múltiplos sistemas externos com estados intermediários |
+| 11 | [Temu Clone](https://github.com/renatomf/nextjs-temu-clone) | Next.js 15 · Sanity · Prisma · Oslo · Zustand | Marketplace de e-commerce (estilo Temu) com autenticação implementada do zero — hashing e tokens de sessão via primitivas de criptografia de baixo nível (padrão Lucia Auth), em vez de um provedor terceirizado, com catálogo gerenciado por CMS headless |
 
-📫 Entre em contato ou explore os repositórios acima para ver os READMEs detalhados de cada arquitetura.
+### Nível III — Orquestração & Integração
+*Múltiplos serviços externos coordenados em conjunto, com dados fluindo entre etapas assíncronas.*
 
-</div>
+| # | Projeto | Stack | Destaque arquitetural |
+|---|---|---|---|
+| 12 | [Skillup](https://github.com/renatomf/nextjs-skillup) | Next.js 14 · Prisma · Clerk · Mux · Stripe | Plataforma de cursos online (estilo Udemy) com vídeo processado externamente, pagamento único por curso e um fluxo de publicação que valida requisitos mínimos (capa, descrição, categoria, ao menos um capítulo) antes de liberar o conteúdo |
+| 13 | [Signalist](https://github.com/renatomf/nextjs-signalist) | Next.js 15 · MongoDB · Better Auth · Inngest · Nodemailer | Plataforma de acompanhamento de ações com jobs em background consultando uma API externa de mercado e disparando alertas personalizados por e-mail conforme condições definidas pelo usuário |
+| 14 | [Flux](https://github.com/renatomf/nextjs-flux) | Next.js · Socket.io · LiveKit · Clerk · Prisma | Plataforma de comunicação (estilo Discord) com mensagens em tempo real e canais de voz/vídeo via WebRTC, com fallback automático de WebSocket para polling em redes instáveis |
+
+### Nível IV — Produtos Full-Stack
+*Casos de uso reais resolvidos ponta a ponta, com boas práticas de integração já estabelecidas na indústria.*
+
+| # | Projeto | Stack | Destaque arquitetural |
+|---|---|---|---|
+| 15 | [Havn](https://github.com/renatomf/nextjs-havn) | Next.js 13 · NextAuth.js · Prisma · Leaflet · Cloudinary | Plataforma de aluguel de acomodações (estilo Airbnb) com busca georreferenciada em mapa interativo e verificação de conflito de disponibilidade antes de confirmar uma reserva |
+| 16 | [Taskify](https://github.com/renatomf/nextjs-taskify) | Next.js 14 · Prisma · Clerk (organizações) · Stripe | Gestão de tarefas (estilo Trello) em quadros por workspace, com cards reordenáveis por arrastar-e-soltar, limite de uso por plano e upgrade via Stripe |
+| 17 | [Lingo](https://github.com/renatomf/nextjs-lingo) | Next.js 14 · Drizzle ORM · Neon · Clerk · Stripe · React Admin | Plataforma gamificada de aprendizado de idiomas (estilo Duolingo) com sistema de pontos e vidas, ranking entre usuários e painel administrativo dedicado à gestão do conteúdo educacional |
+| 18 | [Blip](https://github.com/renatomf/nextjs-blip) | Next.js 14 · NextAuth.js · Prisma · Pusher · Cloudinary | Aplicativo de mensagens (estilo Messenger) com conversas privadas e em grupo, status de presença online e confirmação de leitura em tempo real |
+
+### Nível V — Fundamentos
+*Autenticação, banco de dados, pagamento e upload bem executados — a base sólida de qualquer aplicação real.*
+
+| # | Projeto | Stack | Destaque arquitetural |
+|---|---|---|---|
+| 19 | [Beatstream](https://github.com/renatomf/nextjs-beatstream) | Next.js 14 · Supabase · Stripe · Zustand | Plataforma de streaming de música (estilo Spotify) com upload de faixas próprias, player persistente entre páginas e assinatura premium via Stripe |
+| 20 | [Polaris](https://github.com/renatomf/nextjs-polaris) | Next.js 16 · CodeMirror 6 · Vercel AI SDK · Convex · Inngest | Editor de código no navegador (estilo Cursor) com assistente de IA integrado, combinando CodeMirror para edição e um agente conectado ao Google Gemini para assistência contextual |
+
+### Nível VI — Em Desenvolvimento
+*Base de autenticação e dados já estruturada, funcionalidades principais em construção.*
+
+| # | Projeto | Stack | Status |
+|---|---|---|---|
+| 21 | [MediMeet](https://github.com/renatomf/nextjs-medimeet) | Next.js 15 · Prisma · Clerk · React Hook Form | Base de autenticação, formulários e persistência já configurada para uma plataforma de agendamento médico/telemedicina |
+| 22 | [Streamly](https://github.com/renatomf/nextjs-streamly) | Next.js 14 · Clerk | Base de autenticação configurada para uma futura plataforma de transmissão ao vivo (estilo Twitch) |
+
