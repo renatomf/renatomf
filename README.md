@@ -9,13 +9,9 @@ Especialista em React, Next.js, TypeScript, React Native e Flutter, com experiê
 Acredito que engenharia de excelência vai além do código — ela transforma ideias em soluções sustentáveis e com impacto real.
 
 
-[![GitHub followers](https://img.shields.io/github/followers/renatomf?style=social)](https://github.com/renatomf)
-
-
 <br>
 
-[![Site pessoal](https://img.shields.io/badge/rmf--dev.com.br-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://rmf-dev.com.br/)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-renatomf-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/renatomf/)
+[![Site Pessoal](https://img.shields.io/badge/rmf--dev.com.br-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://rmf-dev.com.br/)&nbsp;&nbsp;&nbsp;[![LinkedIn](https://img.shields.io/badge/renatomf-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/renatomf/)&nbsp;&nbsp;&nbsp;
 
 </div>
 
