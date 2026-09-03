@@ -11,7 +11,7 @@ Acredito que engenharia de excelência vai além do código — ela transforma i
 
 <br>
 
-[![Site Pessoal](https://img.shields.io/badge/rmf--dev.com.br-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://rmf-dev.com.br/)&nbsp;&nbsp;&nbsp;[![LinkedIn](https://img.shields.io/badge/renatomf-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/renatomf/)&nbsp;&nbsp;&nbsp;
+**[🌐 rmf-dev.com.br](https://rmf-dev.com.br/)** &nbsp;·&nbsp; **[💼 LinkedIn](https://www.linkedin.com/in/renatomf/)** &nbsp;·&nbsp; **[💻 GitHub](https://github.com/renatomf)**
 
 </div>
 
