@@ -2,13 +2,12 @@
 
 # Olá, eu sou o Renato 👋
 
-Engenheiro Front-End Sênior com mais de 10 anos construindo aplicações web e mobile escaláveis, performáticas e orientadas a resultado de negócio. 
+Engenheiro Front-End Sênior com mais de 10 anos construindo aplicações web e mobile escaláveis e orientadas a resultado de negócio, definindo arquiteturas e padrões técnicos que equilibram performance, experiência do usuário e objetivos estratégicos do produto.
 
-Defino arquiteturas, padrões técnicos e soluções de engenharia que equilibram performance, experiência do usuário e objetivos estratégicos do produto.
+Especialista em React, Next.js, TypeScript, React Native e Flutter, com experiência em Design Systems, integração de APIs, computação em nuvem e Inteligência Artificial aplicada ao desenvolvimento de software.
 
-Especialista em React, Next.js, TypeScript, React Native e Flutter, com experiência sólida em Design Systems, plataformas escaláveis, integração de APIs, back-end, computação em nuvem e Inteligência Artificial aplicada ao desenvolvimento de software.
+Acredito que engenharia de excelência vai além do código — ela transforma ideias em soluções sustentáveis e com impacto real.
 
-Acredito que engenharia de excelência vai além do código — ela transforma ideias em soluções sustentáveis, eficientes e com impacto real para usuários e negócios.
 
 [![GitHub followers](https://img.shields.io/github/followers/renatomf?style=social)](https://github.com/renatomf)
 
