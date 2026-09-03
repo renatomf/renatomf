@@ -11,6 +11,10 @@ Acredito que engenharia de excelência vai além do código — ela transforma i
 
 [![GitHub followers](https://img.shields.io/github/followers/renatomf?style=social)](https://github.com/renatomf)
 
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Renato-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/seu-usuario)
+[![Site](https://img.shields.io/badge/Site-renatomf.dev-000000?style=flat&logo=vercel&logoColor=white)](https://seusite.com)
+
 </div>
 
 ---
