@@ -12,20 +12,6 @@ Desenvolvedor full-stack com foco em Next.js, React,  arquitetura de sistemas e 
 
 ## 📌 Projetos em destaque
 
-*(Sugestão: fixe estes 6 na aba "Customize your pins" do seu perfil — cobrem categorias técnicas diferentes: motor de execução, IA com RAG, IA em tempo real, SaaS com billing, geração de código por IA e infraestrutura/dev tooling.)*
-
-| Projeto | O que é | Stack principal |
-|---|---|---|
-| 🧩 [**Nodebase**](https://github.com/renatomf/nextjs-nodebase) | Automação de workflows visual, estilo n8n — canvas de nós + execução durável | Next.js 16 · React Flow · tRPC · Inngest · Prisma |
-| 💬 [**Echo**](https://github.com/renatomf/nextjs-echo) | Plataforma de suporte com IA — widget + dashboard + RAG + voz | Next.js 15 · Turborepo · Convex · Clerk · Vapi |
-| 🎙️ [**Resonance**](https://github.com/renatomf/nextjs-resonance) | SaaS multi-tenant de texto-para-voz com clonagem de voz | Next.js 16 · tRPC · Prisma · Cloudflare R2 · Polar |
-| 🎥 [**Meet AI**](https://github.com/renatomf/nextjs-meet-ai) | Agentes de IA que participam de videochamadas em tempo real | Next.js 15 · Stream Video · OpenAI Realtime · Inngest |
-| 🛠️ [**CraftAI**](https://github.com/renatomf/nextjs-craftAI) | Gerador de apps por IA com sandbox isolado e preview ao vivo | Next.js 15 · E2B · Inngest Agent Kit · tRPC |
-| 📡 [**SendKit**](https://github.com/renatomf/sendkit) | Uma lógica, três superfícies: CLI, MCP local e MCP remoto com OAuth | Bun · TypeScript · Hono · Zod · MCP |
-
----
-
-## 🗂️ Todos os projetos, por complexidade de arquitetura
 
 ### 🔴 Produtos originais — problemas de engenharia real
 
