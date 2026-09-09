@@ -1,13 +1,6 @@
 <div align="left">
 
-# Olá, eu sou o Renato 👋
-
-Sou Engenheiro Front-End Sênior com mais de 10 anos de experiência na criação de aplicações web e mobile escaláveis, performáticas e orientadas ao negócio. Atuo na construção de produtos digitais de alta qualidade, definindo arquiteturas, padrões técnicos e soluções de engenharia que equilibram performance, experiência do usuário e objetivos estratégicos.
-
-Especialista em React, Next.js, TypeScript, React Native e Flutter, possuo sólida experiência no desenvolvimento de plataformas modernas, Design Systems, aplicações escaláveis, integração de APIs, back-end, computação em nuvem e Inteligência Artificial aplicada ao desenvolvimento de software.
-
-Ao longo da minha carreira, tenho contribuído para a evolução de produtos digitais por meio de boas práticas de engenharia, decisões arquiteturais bem fundamentadas e colaboração com equipes multidisciplinares. Acredito que tecnologia de excelência vai além do código: ela transforma ideias em soluções sustentáveis, eficientes e capazes de gerar impacto real para usuários e negócios.
-
+<img src="https://raw.githubusercontent.com/renatomf/renatomf/main/asc-github.jpg" alt="Renato Marques - Terminal Profile" width="100%" />
 
 <br>
 
