@@ -1,7 +1,8 @@
 <div align="left">
 
-<img src="https://raw.githubusercontent.com/renatomf/renatomf/main/asc-github.jpg" alt="Renato Marques - Terminal Profile" width="100%" />
+<img src="https://raw.githubusercontent.com/renatomf/renatomf/main/asc-github.jpg" alt="Renato Marques - Terminal Profile" width="600" />
 
+<br>
 <br>
 
 **[🌐 rmf-dev.com.br](https://rmf-dev.com.br/)** &nbsp;·&nbsp; **[💼 LinkedIn](https://www.linkedin.com/in/renatomf/)**
