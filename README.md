@@ -1,6 +1,6 @@
 <div align="left">
 
-<img src="https://raw.githubusercontent.com/renatomf/renatomf/main/asc-github.jpg" alt="Renato Marques - Terminal Profile" width="800" />
+<img src="https://raw.githubusercontent.com/renatomf/renatomf/main/asc-github.jpg" alt="Renato Marques - Terminal Profile" width="700" />
 
 <br>
 <br>
