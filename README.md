@@ -2,11 +2,11 @@
 
 # Olá, eu sou o Renato 👋
 
-Engenheiro Front-End Sênior e Full Stack com mais de 10 anos construindo aplicações web e mobile escaláveis e orientadas a resultado de negócio, definindo arquiteturas e padrões técnicos que equilibram performance, experiência do usuário e objetivos estratégicos do produto.
+Sou Engenheiro Front-End Sênior com mais de 10 anos de experiência na criação de aplicações web e mobile escaláveis, performáticas e orientadas ao negócio. Atuo na construção de produtos digitais de alta qualidade, definindo arquiteturas, padrões técnicos e soluções de engenharia que equilibram performance, experiência do usuário e objetivos estratégicos.
 
-Especialista em React, Next.js, TypeScript, React Native e Flutter, com experiência em Design Systems, integração de APIs, computação em nuvem e Inteligência Artificial aplicada ao desenvolvimento de software.
+Especialista em React, Next.js, TypeScript, React Native e Flutter, possuo sólida experiência no desenvolvimento de plataformas modernas, Design Systems, aplicações escaláveis, integração de APIs, back-end, computação em nuvem e Inteligência Artificial aplicada ao desenvolvimento de software.
 
-Acredito que engenharia de excelência vai além do código — ela transforma ideias em soluções sustentáveis e com impacto real.
+Ao longo da minha carreira, tenho contribuído para a evolução de produtos digitais por meio de boas práticas de engenharia, decisões arquiteturais bem fundamentadas e colaboração com equipes multidisciplinares. Acredito que tecnologia de excelência vai além do código: ela transforma ideias em soluções sustentáveis, eficientes e capazes de gerar impacto real para usuários e negócios.
 
 
 <br>
