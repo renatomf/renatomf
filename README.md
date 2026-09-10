@@ -5,7 +5,15 @@
 <br>
 <br>
 
-**[🌐 rmf-dev.com.br](https://rmf-dev.com.br/)** &nbsp;·&nbsp; **[💼 LinkedIn](https://www.linkedin.com/in/renatomf/)**
+**Conheça minhas redes e explore meu perfil profissional.**
+
+<a href="https://rmf-dev.com.br/">
+  <img src="https://cdn.simpleicons.org/googlechrome/0bafac" width="20" alt="Site pessoal" />
+</a>
+&nbsp;&nbsp;
+<a href="https://www.linkedin.com/in/renatomf/">
+  <img src="https://cdn.simpleicons.org/linkedin/0bafac" width="20" alt="LinkedIn" />
+</a>
 
 </div>
 
