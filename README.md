@@ -7,14 +7,14 @@
 
 **Conheça minhas redes e saiba mais sobre meu perfil.**
 
-<b>Site Pessoal:</b>
-<a href="https://rmf-dev.com.br/">
-  <span style="color:#0bafac;">rmf-dev.com.br</span>
+<b color="#0bafac">Site Pessoal:</b>
+<a href="https://rmf-dev.com.br/" target="_blank" rel="noopener noreferrer">
+  rmf-dev.com.br
 </a>
 &nbsp; · &nbsp;
-<b>LinkedIn:</b>
-<a href="https://www.linkedin.com/in/renatomf/">
-  <span style="color:#0bafac;">linkedin.com/in/renatomf</span>
+<b color="#0bafac">LinkedIn:</b>
+<a href="https://www.linkedin.com/in/renatomf/" target="_blank" rel="noopener noreferrer">
+  linkedin.com/in/renatomf
 </a>
 
 </div>
