@@ -5,14 +5,16 @@
 <br>
 <br>
 
-**Conheça minhas redes e explore meu perfil profissional.**
+**Conheça minhas redes e saiba mais sobre meu perfil.**
 
+<b>Site Pessoal:</b>
 <a href="https://rmf-dev.com.br/">
-  <img src="https://cdn.simpleicons.org/googlechrome/0bafac" width="20" alt="Site pessoal" />
+  <span style="color:#0bafac;">rmf-dev.com.br</span>
 </a>
-&nbsp;&nbsp;
+&nbsp; · &nbsp;
+<b>LinkedIn:</b>
 <a href="https://www.linkedin.com/in/renatomf/">
-  <img src="https://cdn.simpleicons.org/linkedin/0bafac" width="20" alt="LinkedIn" />
+  <span style="color:#0bafac;">linkedin.com/in/renatomf</span>
 </a>
 
 </div>
