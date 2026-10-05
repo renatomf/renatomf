@@ -27,12 +27,66 @@ Projetos organizados por domínio técnico, arquitetura e principais desafios de
 
 | Projeto | Stack | Arquitetura | Foco de Engenharia | Detalhes |
 | :--- | :--- | :--- | :--- | :--- |
-| **[CodeDriven](https://github.com/renatomf/nextjs-codedriven)**<br><sub>⭐⭐⭐⭐⭐</sub> | `Next.js 16` · `React 19` · `AI SDK` · `Groq` · `Tree-sitter` · `Drizzle` · `Neon` · `NextAuth` · `Stripe` | Static Code Analysis + AI-Assisted Code Intelligence | AST parsing · code analysis · AI insights · semantic processing · repository analysis | Plataforma de análise de código que combina parsing baseado em AST com IA para inspecionar bases de código, identificar padrões e gerar insights técnicos sobre estrutura, qualidade e arquitetura. |
+| **[CodeDriven](https://github.com/renatomf/nextjs-codedriven)**<br><sub>⭐⭐⭐⭐⭐</sub> | `Next.js 16` · `React 19` · `AI SDK` · `Groq` · `Tree-sitter` · `pgvector` · `Drizzle` · `Neon` · `Vercel Workflows` · `Auth.js` · `Stripe` · `Vitest` · `Playwright` | Modular Monolith + Clean Architecture e DDD seletivos + Durable Workflows | Static analysis · RAG · LLM evals · architecture rules no CI · testes em Postgres real · durable execution | Auditor de codebases JS/TS: importa um repositório (GitHub App ou ZIP), combina regras determinísticas com revisão por LLM (achado sem evidência é descartado), gera nota por categoria e oferece chat com o código via RAG. Arquitetura detalhada abaixo. |
 | **[Echo](https://github.com/renatomf/nextjs-echo)**<br><sub>⭐⭐⭐⭐⭐</sub> | `Next.js 15` · `Turborepo` · `Convex` · `Clerk` · `Vapi` · `Jotai` · `Zod` · `Sentry` | Modular Monorepo + Realtime AI | AI agents · RAG · tool calling · multi-tenancy · human handoff | Plataforma de atendimento com widget embeddable, dashboard multi-tenant e agente de IA capaz de consultar conhecimento, usar ferramentas e escalar para atendimento humano. |
 | **[CraftAI](https://github.com/renatomf/nextjs-craftAI)**<br><sub>⭐⭐⭐⭐⭐</sub> | `Next.js 15` · `tRPC` · `Prisma` · `Clerk` · `E2B` · `Inngest` · `Agent Kit` · `Zod` | Agentic Workflow + Isolated Sandbox | Agent orchestration · runtime isolation · code generation · live preview · rate limiting | Gerador de aplicações por IA que transforma linguagem natural em código, executa o resultado em sandbox isolado e disponibiliza preview ao vivo. |
 | **[Polaris](https://github.com/renatomf/nextjs-polaris)**<br><sub>⭐⭐⭐⭐⭐</sub> | `Next.js 16` · `CodeMirror 6` · `Vercel AI SDK` · `Gemini` · `Convex` · `Inngest` · `Firecrawl` · `Clerk` · `Sentry` | AI IDE + Reactive Backend + Async Jobs | Agent orchestration · code editing · background processing · web context · reactive state | IDE web com editor de código, agente de IA e aquisição de contexto externo, mantendo operações interativas separadas de jobs assíncronos. |
 | **[PlayForge](https://github.com/renatomf/nextjs-playforge)**<br><sub>⭐⭐⭐⭐⭐</sub> | `Next.js 16` · `React 19` · `Vercel AI SDK` · `Trigger.dev` · `Drizzle` · `Neon` · `Clerk` · `Sentry` · `Tailwind CSS` | AI Platform + Async Workflows + Multi-Provider LLM | AI orchestration · multi-provider models · background jobs · observability · AI workflows | Plataforma de AI Engineering construída com Next.js, combinando múltiplos provedores de LLM, workflows assíncronos, persistência, autenticação e observabilidade em uma arquitetura orientada a produção. |
 | **[Meet AI](https://github.com/renatomf/nextjs-meet-ai)**<br><sub>⭐⭐⭐⭐</sub> | `Next.js 15` · `tRPC` · `Drizzle` · `Neon` · `Better Auth` · `Stream Video` · `Stream Chat` · `OpenAI Realtime` · `Inngest` | Realtime Communication + Async AI Processing | Realtime media · AI agents · async jobs · context processing · summarization | Plataforma SaaS de reuniões em que agentes de IA participam em tempo real e geram posteriormente resumos estruturados e contexto pesquisável. |
+
+<details>
+<summary><b>CodeDriven — arquitetura em detalhe</b></summary>
+
+<br>
+
+**Monólito modular** ([ADR-001](https://github.com/renatomf/nextjs-codedriven/blob/main/docs/decisions/001-modular-monolith.md)): um único deploy Next.js, com o domínio dividido em seis módulos — `identity`, `projects`, `ingestion`, `analysis`, `chat` e `billing`. Microsserviços foram avaliados e descartados: o gargalo medido (análise dentro da request) se resolveu com execução durável, sem separar o sistema.
+
+**Clean Architecture seletiva.** Camadas só onde há regra de negócio; telas sem regra (settings, dashboard) não ganham entidades nem repositórios.
+
+```
+src/modules/<módulo>/
+├── domain/          # TypeScript puro: sem banco, sem framework, sem process.env
+├── application/     # use cases + portas (interfaces) que eles usam
+├── infrastructure/  # adaptadores: Drizzle, Stripe, pgvector, ONNX
+├── index.ts         # API pública pura (importável até no client)
+└── server.ts        # API pública de servidor: composition root ("server-only")
+```
+
+- **Portas e adaptadores com critério:** uma porta só existe com duas implementações ou um fake de teste (`Embedder`, `VectorStore`, `BillingRepository`). Stripe, com uma implementação só, fica sem porta.
+- **Injeção de dependência por factory:** os use cases recebem as dependências (`createQuota({ repo, catalog, now })`), inclusive o relógio; o `server.ts` monta tudo com o executor certo (conexão ou transação).
+- **Regras de arquitetura no CI** com dependency-cruiser (baseline de violações: 0): domínio puro, application sem infraestrutura, acesso a módulos só pela API pública, `src/app` sem acesso ao banco, sem React nos módulos e sem ciclos.
+- **Migração Strangler:** o código antigo virou fachada que delega ao módulo, com os testes existentes provando que o comportamento não mudou.
+
+**DDD tático, sem cerimônia.**
+
+- **Domínio puro e explícito:** ciclo de vida do projeto como máquina de estados (`queued → processing → completed | failed`), `Finding`/`Evidence`, `Rule` (uma regra por heurística) e `ScoringPolicy` como estratégia trocável da nota.
+- **Funções em vez de classes** quando o estado vem do banco a cada request; a regra pura (`analysisStart`) é aplicada atomicamente por um `UPDATE ... WHERE` com a mesma condição.
+- **Camada anticorrupção para o Stripe:** os tipos do Stripe param em `infrastructure/stripe/translate.ts`; a regra de direito ao plano (`entitlementFor`) é domínio puro.
+- **`DomainError`** separa erro de negócio (mensagem para o usuário) de erro técnico (mensagem genérica).
+- **Linguagem ubíqua** documentada em glossário e decisões em 11 ADRs.
+
+**Consistência e execução assíncrona.**
+
+- **Cota transacional (`withQuota`):** lock da linha do usuário → checagem do plano → trabalho → registro de uso, tudo ou nada; falha do sistema devolve a cota.
+- **Vercel Workflows:** cada etapa da análise é um step com retry, só ids trafegam entre steps, erro do usuário é `FatalError` e um cron (reaper) encerra runs que morreram.
+
+**Estratégia de testes (~730 testes + evals).**
+
+| Nível | Como |
+| :--- | :--- |
+| Unidade (domínio) | Regras puras testadas sem mocks nem banco |
+| Use cases | Fakes das portas (embedder e vector store em memória), sem baixar o modelo |
+| Caracterização | Snapshot da saída completa da análise antes de refatorar as heurísticas |
+| Componentes | Testing Library + jsdom |
+| Integração | Postgres + pgvector reais com as migrations de verdade; recusa hosts remotos; testes de IDOR/isolamento entre usuários e de concorrência (validado por mutação) |
+| E2E | Playwright na build de produção, com LLM fake determinístico |
+| Evals de IA | Recall contra vulnerabilidades anotadas (NodeGoat, Juice Shop), evidência válida, resistência a prompt injection e falsos positivos proibidos; versões do prompt travadas em `prompts.lock.json` |
+
+**CI obrigatório para merge:** lint, regras de arquitetura, migrations em sincronia com o schema, typecheck, testes, build, limite de tamanho de função, eval com quality gate, integração, E2E e OSV-Scanner.
+
+**Engenharia como prática:** ADRs com alternativas e consequências, registro de dívida técnica (TD-xx), runbooks, postmortems, retrospectivas e baseline medido antes de otimizar.
+
+</details>
 
 ---
 
@@ -103,3 +157,9 @@ Projetos organizados por domínio técnico, arquitetura e principais desafios de
 - `Type-Safe APIs`
 - `Sandboxed Execution`
 - `Observability`
+- `Modular Monolith`
+- `Clean Architecture`
+- `Domain-Driven Design`
+- `Ports & Adapters`
+- `Architecture Testing`
+- `LLM Evals`
