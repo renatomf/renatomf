@@ -97,11 +97,6 @@ apps/api/src/modules/<módulo>/
 | Projeto | Stack | Arquitetura | Foco de Engenharia | Detalhes |
 | :--- | :--- | :--- | :--- | :--- |
 | **[CodeDriven](https://github.com/renatomf/nextjs-codedriven)**<br><sub>⭐⭐⭐⭐⭐</sub> | `Next.js 16` · `React 19` · `AI SDK` · `Groq` · `Tree-sitter` · `pgvector` · `Drizzle` · `Neon` · `Vercel Workflows` · `Auth.js` · `Stripe` · `Vitest` · `Playwright` | Modular Monolith + Clean Architecture e DDD seletivos + Durable Workflows | Static analysis · RAG · LLM evals · architecture rules no CI · testes em Postgres real · durable execution | Auditor de codebases JS/TS: importa um repositório (GitHub App ou ZIP), combina regras determinísticas com revisão por LLM (achado sem evidência é descartado), gera nota por categoria e oferece chat com o código via RAG. Arquitetura detalhada abaixo. |
-| **[Echo](https://github.com/renatomf/nextjs-echo)**<br><sub>⭐⭐⭐⭐⭐</sub> | `Next.js 15` · `Turborepo` · `Convex` · `Clerk` · `Vapi` · `Jotai` · `Zod` · `Sentry` | Modular Monorepo + Realtime AI | AI agents · RAG · tool calling · multi-tenancy · human handoff | Plataforma de atendimento com widget embeddable, dashboard multi-tenant e agente de IA que resolve ou escala conversas para atendimento humano, com base de conhecimento por organização (RAG). |
-| **[CraftAI](https://github.com/renatomf/nextjs-craftAI)**<br><sub>⭐⭐⭐⭐⭐</sub> | `Next.js 15` · `tRPC` · `Prisma` · `Clerk` · `E2B` · `Inngest` · `Agent Kit` · `Zod` | Agentic Workflow + Isolated Sandbox | Agent orchestration · runtime isolation · code generation · live preview · rate limiting | Gerador de aplicações por IA que transforma linguagem natural em código, executa o resultado em sandbox isolado e disponibiliza preview ao vivo. |
-| **[Polaris](https://github.com/renatomf/nextjs-polaris)**<br><sub>⭐⭐⭐⭐⭐</sub> | `Next.js 16` · `CodeMirror 6` · `Vercel AI SDK` · `Gemini` · `Convex` · `Inngest` · `Firecrawl` · `Clerk` · `Sentry` | AI IDE + Reactive Backend + Async Jobs | Agent orchestration · code editing · background processing · web context · reactive state | IDE web com editor de código, árvore de arquivos reativa e jobs assíncronos para aquisição de contexto externo com IA, mantendo operações interativas separadas do processamento em background. |
-| **[PlayForge](https://github.com/renatomf/nextjs-playforge)**<br><sub>⭐⭐⭐⭐⭐</sub> | `Next.js 16` · `React 19` · `Vercel AI SDK` · `Trigger.dev` · `Drizzle` · `Neon` · `Clerk` · `Sentry` · `Tailwind CSS` | Durable AI Agent + Isolated Sandboxes + Multi-Provider LLM | Agent tools · human-in-the-loop · durable execution · usage ledger · multi-tenancy · observability | Construtor agêntico de jogos 3D: o agente faz perguntas, escreve o jogo num sandbox isolado na nuvem e entrega um preview jogável ao lado do chat, com créditos medidos por passo do modelo. |
-| **[Meet AI](https://github.com/renatomf/nextjs-meet-ai)**<br><sub>⭐⭐⭐⭐</sub> | `Next.js 15` · `tRPC` · `Drizzle` · `Neon` · `Better Auth` · `Stream Video` · `Stream Chat` · `OpenAI Realtime` · `Inngest` | Realtime Communication + Async AI Processing | Realtime media · AI agents · async jobs · context processing · summarization | Plataforma SaaS de reuniões em que agentes de IA participam em tempo real e geram posteriormente resumos estruturados e contexto pesquisável. |
 
 <details>
 <summary><b>CodeDriven — arquitetura em detalhe</b></summary>
@@ -157,6 +152,10 @@ src/modules/<módulo>/
 
 </details>
 
+| Projeto | Stack | Arquitetura | Foco de Engenharia | Detalhes |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Echo](https://github.com/renatomf/nextjs-echo)**<br><sub>⭐⭐⭐⭐⭐</sub> | `Next.js 15` · `Turborepo` · `Convex` · `Clerk` · `Vapi` · `Jotai` · `Zod` · `Sentry` | Modular Monorepo + Realtime AI | AI agents · RAG · tool calling · multi-tenancy · human handoff | Plataforma de atendimento com widget embeddable, dashboard multi-tenant e agente de IA que resolve ou escala conversas para atendimento humano, com base de conhecimento por organização (RAG). |
+
 <details>
 <summary><b>Echo — arquitetura em detalhe</b></summary>
 
@@ -173,6 +172,10 @@ src/modules/<módulo>/
 
 </details>
 
+| Projeto | Stack | Arquitetura | Foco de Engenharia | Detalhes |
+| :--- | :--- | :--- | :--- | :--- |
+| **[CraftAI](https://github.com/renatomf/nextjs-craftAI)**<br><sub>⭐⭐⭐⭐⭐</sub> | `Next.js 15` · `tRPC` · `Prisma` · `Clerk` · `E2B` · `Inngest` · `Agent Kit` · `Zod` | Agentic Workflow + Isolated Sandbox | Agent orchestration · runtime isolation · code generation · live preview · rate limiting | Gerador de aplicações por IA que transforma linguagem natural em código, executa o resultado em sandbox isolado e disponibiliza preview ao vivo. |
+
 <details>
 <summary><b>CraftAI — arquitetura em detalhe</b></summary>
 
@@ -186,6 +189,10 @@ src/modules/<módulo>/
 - **Créditos por plano** com `rate-limiter-flexible` persistido no Prisma (janela de 30 dias, limite diferente para free e pro via Clerk Billing).
 
 </details>
+
+| Projeto | Stack | Arquitetura | Foco de Engenharia | Detalhes |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Polaris](https://github.com/renatomf/nextjs-polaris)**<br><sub>⭐⭐⭐⭐⭐</sub> | `Next.js 16` · `CodeMirror 6` · `Vercel AI SDK` · `Gemini` · `Convex` · `Inngest` · `Firecrawl` · `Clerk` · `Sentry` | AI IDE + Reactive Backend + Async Jobs | Agent orchestration · code editing · background processing · web context · reactive state | IDE web com editor de código, árvore de arquivos reativa e jobs assíncronos para aquisição de contexto externo com IA, mantendo operações interativas separadas do processamento em background. |
 
 <details>
 <summary><b>Polaris — arquitetura em detalhe</b></summary>
@@ -201,6 +208,10 @@ src/modules/<módulo>/
 
 </details>
 
+| Projeto | Stack | Arquitetura | Foco de Engenharia | Detalhes |
+| :--- | :--- | :--- | :--- | :--- |
+| **[PlayForge](https://github.com/renatomf/nextjs-playforge)**<br><sub>⭐⭐⭐⭐⭐</sub> | `Next.js 16` · `React 19` · `Vercel AI SDK` · `Trigger.dev` · `Drizzle` · `Neon` · `Clerk` · `Sentry` · `Tailwind CSS` | Durable AI Agent + Isolated Sandboxes + Multi-Provider LLM | Agent tools · human-in-the-loop · durable execution · usage ledger · multi-tenancy · observability | Construtor agêntico de jogos 3D: o agente faz perguntas, escreve o jogo num sandbox isolado na nuvem e entrega um preview jogável ao lado do chat, com créditos medidos por passo do modelo. |
+
 <details>
 <summary><b>PlayForge — arquitetura em detalhe</b></summary>
 
@@ -215,6 +226,10 @@ src/modules/<módulo>/
 - **Observabilidade ponta a ponta** com Sentry no browser, servidor, edge e worker; engine 3D própria sobre Three.js.
 
 </details>
+
+| Projeto | Stack | Arquitetura | Foco de Engenharia | Detalhes |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Meet AI](https://github.com/renatomf/nextjs-meet-ai)**<br><sub>⭐⭐⭐⭐</sub> | `Next.js 15` · `tRPC` · `Drizzle` · `Neon` · `Better Auth` · `Stream Video` · `Stream Chat` · `OpenAI Realtime` · `Inngest` | Realtime Communication + Async AI Processing | Realtime media · AI agents · async jobs · context processing · summarization | Plataforma SaaS de reuniões em que agentes de IA participam em tempo real e geram posteriormente resumos estruturados e contexto pesquisável. |
 
 <details>
 <summary><b>Meet AI — arquitetura em detalhe</b></summary>
@@ -236,9 +251,6 @@ src/modules/<módulo>/
 | Projeto | Stack | Arquitetura | Foco de Engenharia | Detalhes |
 | :--- | :--- | :--- | :--- | :--- |
 | **[Switchboard](https://github.com/renatomf/nextjs-switchboard)**<br><sub>⭐⭐⭐⭐⭐</sub> | `Next.js 16` · `React Flow` · `Liveblocks` · `Trigger.dev` · `Browserbase` · `Stagehand` · `Neon` · `Drizzle` · `Clerk` · `Sentry` | Event-Driven + Realtime + Background Workers | Durable execution · workflow orchestration · distributed state · session lifecycle · observability | Plataforma visual para criar e executar automações de browser em sessões reais na nuvem, com colaboração em tempo real, execução durável e replay das sessões. |
-| **[Nodebase](https://github.com/renatomf/nextjs-nodebase)**<br><sub>⭐⭐⭐⭐</sub> | `Next.js 16` · `React Flow` · `tRPC` · `Inngest` · `Prisma` · `PostgreSQL` · `Vercel AI SDK` · `Better Auth` · `Polar` · `Sentry` | Workflow Engine + Durable Execution | Workflow orchestration · retries · async processing · execution state · integrations | Editor visual de workflows que combina triggers, AI nodes e integrações externas com execução persistente em background e histórico das execuções. |
-| **[Resonance](https://github.com/renatomf/nextjs-resonance)**<br><sub>⭐⭐⭐⭐</sub> | `Next.js 16` · `tRPC` · `Prisma` · `PostgreSQL` · `Cloudflare R2` · `Polar` · `Clerk` · `Chatterbox TTS` · `Sentry` | Multi-Tenant SaaS + Type-Safe API | Usage metering · object storage · presigned URLs · subscriptions · external services | Plataforma de geração de voz e voice cloning com processamento externo, armazenamento de áudio em object storage e billing baseado em uso. |
-| **[TeamFlow](https://github.com/renatomf/nextjs-teamflow)**<br><sub>⭐⭐⭐</sub> | `Next.js 16` · `oRPC` · `TanStack Query` · `Prisma` · `PostgreSQL` · `Kinde` · `Arcjet` · `UploadThing` · `Tiptap` | Multi-Tenant SaaS + Type-Safe RPC | Tenant isolation · authorization · optimistic UI · rate limiting · abuse protection | Plataforma de colaboração com workspaces, canais, threads, mensagens, uploads e controle de acesso por organização. |
 
 <details>
 <summary><b>Switchboard — arquitetura em detalhe</b></summary>
@@ -255,6 +267,10 @@ src/modules/<módulo>/
 
 </details>
 
+| Projeto | Stack | Arquitetura | Foco de Engenharia | Detalhes |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Nodebase](https://github.com/renatomf/nextjs-nodebase)**<br><sub>⭐⭐⭐⭐</sub> | `Next.js 16` · `React Flow` · `tRPC` · `Inngest` · `Prisma` · `PostgreSQL` · `Vercel AI SDK` · `Better Auth` · `Polar` · `Sentry` | Workflow Engine + Durable Execution | Workflow orchestration · retries · async processing · execution state · integrations | Editor visual de workflows que combina triggers, AI nodes e integrações externas com execução persistente em background e histórico das execuções. |
+
 <details>
 <summary><b>Nodebase — arquitetura em detalhe</b></summary>
 
@@ -269,6 +285,10 @@ src/modules/<módulo>/
 
 </details>
 
+| Projeto | Stack | Arquitetura | Foco de Engenharia | Detalhes |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Resonance](https://github.com/renatomf/nextjs-resonance)**<br><sub>⭐⭐⭐⭐</sub> | `Next.js 16` · `tRPC` · `Prisma` · `PostgreSQL` · `Cloudflare R2` · `Polar` · `Clerk` · `Chatterbox TTS` · `Sentry` | Multi-Tenant SaaS + Type-Safe API | Usage metering · object storage · presigned URLs · subscriptions · external services | Plataforma de geração de voz e voice cloning com processamento externo, armazenamento de áudio em object storage e billing baseado em uso. |
+
 <details>
 <summary><b>Resonance — arquitetura em detalhe</b></summary>
 
@@ -282,6 +302,10 @@ src/modules/<módulo>/
 - **Variáveis de ambiente validadas** com `@t3-oss/env-nextjs`; formulários com TanStack Form.
 
 </details>
+
+| Projeto | Stack | Arquitetura | Foco de Engenharia | Detalhes |
+| :--- | :--- | :--- | :--- | :--- |
+| **[TeamFlow](https://github.com/renatomf/nextjs-teamflow)**<br><sub>⭐⭐⭐</sub> | `Next.js 16` · `oRPC` · `TanStack Query` · `Prisma` · `PostgreSQL` · `Kinde` · `Arcjet` · `UploadThing` · `Tiptap` | Multi-Tenant SaaS + Type-Safe RPC | Tenant isolation · authorization · optimistic UI · rate limiting · abuse protection | Plataforma de colaboração com workspaces, canais, threads, mensagens, uploads e controle de acesso por organização. |
 
 <details>
 <summary><b>TeamFlow — arquitetura em detalhe</b></summary>
@@ -303,10 +327,6 @@ src/modules/<módulo>/
 | Projeto | Stack | Arquitetura | Foco de Engenharia | Detalhes |
 | :--- | :--- | :--- | :--- | :--- |
 | **[Docly](https://github.com/renatomf/nextjs-docly)**<br><sub>⭐⭐⭐⭐⭐</sub> | `Next.js 15` · `Tiptap` · `Liveblocks` · `Yjs` · `Convex` · `Clerk` · `Zustand` | Realtime Collaboration + CRDT | Concurrent editing · CRDT · presence · anchored comments · permissions | Editor colaborativo de documentos com edição simultânea, cursores, presença, comentários ancorados ao texto, busca e permissões por dono ou organização. |
-| **[Flux](https://github.com/renatomf/nextjs-flux)**<br><sub>⭐⭐⭐⭐</sub> | `Next.js` · `Socket.io` · `LiveKit` · `Clerk` · `Prisma` · `PostgreSQL` · `UploadThing` · `TanStack Query` | Realtime Messaging + WebRTC | WebSockets · WebRTC · presence · connection resilience · media delivery | Plataforma de comunicação com servidores, canais de texto, áudio e vídeo, mensagens realtime e fallback de WebSocket para polling. |
-| **[Streamly](https://github.com/renatomf/nextjs-streamly)**<br><sub>⭐</sub> | `Next.js 14` · `Clerk` · `Tailwind CSS` · `Radix UI` · `shadcn/ui` · `next-themes` | Realtime Streaming Platform — Planned | Low-latency streaming · realtime chat · moderation · stream lifecycle | Plataforma de live streaming com transmissão de baixa latência, chat em tempo real, gerenciamento de stream keys e painel de controle do criador. |
-| **[Sketchpad](https://github.com/renatomf/nextjs-sketchpad)**<br><sub>⭐⭐⭐⭐</sub> | `Next.js 14` · `Liveblocks` · `Convex` · `Clerk` · `perfect-freehand` · `Zustand` | Collaborative Canvas + Realtime State | Shared state · synchronization · presence · undo/redo · multi-user interaction | Whiteboard colaborativo com desenho livre, shapes, sticky notes, texto, camadas, cursores e histórico compartilhado. |
-| **[Blip](https://github.com/renatomf/nextjs-blip)**<br><sub>⭐⭐⭐</sub> | `Next.js 14` · `NextAuth.js` · `Prisma` · `Pusher` · `Cloudinary` · `Zustand` · `Axios` | API-Driven + Realtime Messaging | Realtime delivery · presence · read receipts · event channels · media | Aplicação de chat 1:1 e em grupo com mensagens em tempo real, presença online, confirmação de leitura e compartilhamento de imagens. |
 
 <details>
 <summary><b>Docly — arquitetura em detalhe</b></summary>
@@ -319,6 +339,10 @@ src/modules/<módulo>/
 - **Extensões próprias do Tiptap** (tamanho de fonte, altura de linha) e a instância do editor compartilhada com a toolbar via Zustand; busca na URL com nuqs.
 
 </details>
+
+| Projeto | Stack | Arquitetura | Foco de Engenharia | Detalhes |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Flux](https://github.com/renatomf/nextjs-flux)**<br><sub>⭐⭐⭐⭐</sub> | `Next.js` · `Socket.io` · `LiveKit` · `Clerk` · `Prisma` · `PostgreSQL` · `UploadThing` · `TanStack Query` | Realtime Messaging + WebRTC | WebSockets · WebRTC · presence · connection resilience · media delivery | Plataforma de comunicação com servidores, canais de texto, áudio e vídeo, mensagens realtime e fallback de WebSocket para polling. |
 
 <details>
 <summary><b>Flux — arquitetura em detalhe</b></summary>
@@ -333,6 +357,10 @@ src/modules/<módulo>/
 
 </details>
 
+| Projeto | Stack | Arquitetura | Foco de Engenharia | Detalhes |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Streamly](https://github.com/renatomf/nextjs-streamly)**<br><sub>⭐</sub> | `Next.js 14` · `Clerk` · `Tailwind CSS` · `Radix UI` · `shadcn/ui` · `next-themes` | Realtime Streaming Platform — Planned | Low-latency streaming · realtime chat · moderation · stream lifecycle | Plataforma de live streaming com transmissão de baixa latência, chat em tempo real, gerenciamento de stream keys e painel de controle do criador. |
+
 <details>
 <summary><b>Streamly — arquitetura em detalhe</b></summary>
 
@@ -342,6 +370,10 @@ src/modules/<módulo>/
 - **Próximos passos:** ingestão e transmissão de baixa latência, chat em tempo real e gerenciamento de stream keys.
 
 </details>
+
+| Projeto | Stack | Arquitetura | Foco de Engenharia | Detalhes |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Sketchpad](https://github.com/renatomf/nextjs-sketchpad)**<br><sub>⭐⭐⭐⭐</sub> | `Next.js 14` · `Liveblocks` · `Convex` · `Clerk` · `perfect-freehand` · `Zustand` | Collaborative Canvas + Realtime State | Shared state · synchronization · presence · undo/redo · multi-user interaction | Whiteboard colaborativo com desenho livre, shapes, sticky notes, texto, camadas, cursores e histórico compartilhado. |
 
 <details>
 <summary><b>Sketchpad — arquitetura em detalhe</b></summary>
@@ -354,6 +386,10 @@ src/modules/<módulo>/
 - **Canvas como máquina de estados** (`CanvasMode`: seleção, translação, inserção, redimensionamento, lápis…), com traço suave via perfect-freehand.
 
 </details>
+
+| Projeto | Stack | Arquitetura | Foco de Engenharia | Detalhes |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Blip](https://github.com/renatomf/nextjs-blip)**<br><sub>⭐⭐⭐</sub> | `Next.js 14` · `NextAuth.js` · `Prisma` · `Pusher` · `Cloudinary` · `Zustand` · `Axios` | API-Driven + Realtime Messaging | Realtime delivery · presence · read receipts · event channels · media | Aplicação de chat 1:1 e em grupo com mensagens em tempo real, presença online, confirmação de leitura e compartilhamento de imagens. |
 
 <details>
 <summary><b>Blip — arquitetura em detalhe</b></summary>
@@ -374,9 +410,6 @@ src/modules/<módulo>/
 | Projeto | Stack | Arquitetura | Foco de Engenharia | Detalhes |
 | :--- | :--- | :--- | :--- | :--- |
 | **[SendKit](https://github.com/renatomf/sendkit)**<br><sub>⭐⭐⭐⭐</sub> | `TypeScript` · `Bun` · `Hono` · `Zod` · `MCP` · `Clerk` · `Telegram Bot API` | Shared Core + Multi-Surface Architecture | Protocol abstraction · shared business logic · MCP · CLI · interface decoupling | Monorepo que expõe uma mesma operação de envio para Telegram através de CLI, MCP local e MCP remoto, centralizando a lógica em um único core. |
-| **[VidFlow](https://github.com/renatomf/nextjs-vidflow)**<br><sub>⭐⭐⭐⭐</sub> | `Next.js 15` · `tRPC` · `Drizzle` · `Neon` · `Mux` · `UploadThing` · `Upstash Workflow` · `Svix` · `Clerk` | Async Media Pipeline + Webhook-Driven Architecture | Media processing · async workflows · webhooks · direct upload · rate limiting | Plataforma de vídeo com upload direto, processamento/transcodificação via webhooks, streaming adaptativo, comentários, playlists, inscrições e creator studio. |
-| **[Signalist](https://github.com/renatomf/nextjs-signalist)**<br><sub>⭐⭐⭐</sub> | `Next.js 15` · `MongoDB` · `Mongoose` · `Better Auth` · `Inngest` · `Nodemailer` | Event-Driven Workflows + External Data Integration | External APIs · scheduled processing · alerts · notifications · background jobs | Plataforma de acompanhamento de mercado com watchlists, dados de ações, e-mail de boas-vindas personalizado por IA e digest diário de notícias. |
-| **[Skillup](https://github.com/renatomf/nextjs-skillup)**<br><sub>⭐⭐⭐</sub> | `Next.js 14` · `Prisma` · `PostgreSQL` · `Clerk` · `Mux` · `UploadThing` · `Stripe` · `Server Actions` | Server Actions + Webhook-Driven Integrations | Payment flows · media processing · webhooks · content lifecycle · progress tracking | Plataforma de cursos com criação e publicação de conteúdo, vídeo, anexos, pagamentos, progresso e dashboard administrativo. |
 
 <details>
 <summary><b>SendKit — arquitetura em detalhe</b></summary>
@@ -391,6 +424,10 @@ src/modules/<módulo>/
 
 </details>
 
+| Projeto | Stack | Arquitetura | Foco de Engenharia | Detalhes |
+| :--- | :--- | :--- | :--- | :--- |
+| **[VidFlow](https://github.com/renatomf/nextjs-vidflow)**<br><sub>⭐⭐⭐⭐</sub> | `Next.js 15` · `tRPC` · `Drizzle` · `Neon` · `Mux` · `UploadThing` · `Upstash Workflow` · `Svix` · `Clerk` | Async Media Pipeline + Webhook-Driven Architecture | Media processing · async workflows · webhooks · direct upload · rate limiting | Plataforma de vídeo com upload direto, processamento/transcodificação via webhooks, streaming adaptativo, comentários, playlists, inscrições e creator studio. |
+
 <details>
 <summary><b>VidFlow — arquitetura em detalhe</b></summary>
 
@@ -404,6 +441,10 @@ src/modules/<módulo>/
 
 </details>
 
+| Projeto | Stack | Arquitetura | Foco de Engenharia | Detalhes |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Signalist](https://github.com/renatomf/nextjs-signalist)**<br><sub>⭐⭐⭐</sub> | `Next.js 15` · `MongoDB` · `Mongoose` · `Better Auth` · `Inngest` · `Nodemailer` | Event-Driven Workflows + External Data Integration | External APIs · scheduled processing · alerts · notifications · background jobs | Plataforma de acompanhamento de mercado com watchlists, dados de ações, e-mail de boas-vindas personalizado por IA e digest diário de notícias. |
+
 <details>
 <summary><b>Signalist — arquitetura em detalhe</b></summary>
 
@@ -414,6 +455,10 @@ src/modules/<módulo>/
 - **Workflows com Inngest:** no cadastro, `step.ai.infer` (Gemini) gera uma introdução personalizada para o e-mail de boas-vindas; um cron diário busca notícias da watchlist de cada usuário, resume com IA e envia o digest por Nodemailer.
 
 </details>
+
+| Projeto | Stack | Arquitetura | Foco de Engenharia | Detalhes |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Skillup](https://github.com/renatomf/nextjs-skillup)**<br><sub>⭐⭐⭐</sub> | `Next.js 14` · `Prisma` · `PostgreSQL` · `Clerk` · `Mux` · `UploadThing` · `Stripe` · `Server Actions` | Server Actions + Webhook-Driven Integrations | Payment flows · media processing · webhooks · content lifecycle · progress tracking | Plataforma de cursos com criação e publicação de conteúdo, vídeo, anexos, pagamentos, progresso e dashboard administrativo. |
 
 <details>
 <summary><b>Skillup — arquitetura em detalhe</b></summary>
@@ -435,11 +480,6 @@ src/modules/<módulo>/
 | Projeto | Stack | Arquitetura | Foco de Engenharia | Detalhes |
 | :--- | :--- | :--- | :--- | :--- |
 | **[MediMeet](https://github.com/renatomf/nextjs-medimeet)**<br><sub>⭐</sub> | `Next.js 15` · `Prisma` · `Clerk` · `React Hook Form` · `Zod` · `Tailwind CSS` · `Radix UI` | Modular Full Stack + Role-Based Domain | Role-based access · domain modeling · scheduling · extensibility · secure workflows | Plataforma de atendimento remoto com onboarding por papel (paciente e médico), verificação de médicos, créditos por plano e domínio modelado para agendamento e repasses. |
-| **[Marketto](https://github.com/renatomf/nextjs-marketto)**<br><sub>⭐⭐⭐</sub> | `Next.js 15` · `Sanity` · `Prisma` · `Oslo` · `Zustand` · `Zod` · `Tailwind CSS` | Headless Commerce + Custom Authentication | Content/data separation · session management · transactional persistence · client state | E-commerce com catálogo gerenciado por headless CMS, carrinho sincronizado entre cliente e servidor e autenticação própria baseada em sessões. |
-| **[Taskify](https://github.com/renatomf/nextjs-taskify)**<br><sub>⭐⭐⭐</sub> | `Next.js 14` · `Prisma` · `Clerk` · `Stripe` · `TanStack Query` · `Zustand` · `DnD` | Multi-Tenant SaaS + Server Actions | Tenant isolation · authorization · optimistic interactions · audit logging · billing | SaaS de gestão de projetos com organizações, boards, listas, cards, drag-and-drop, audit log e planos de assinatura. |
-| **[Lingo](https://github.com/renatomf/nextjs-lingo)**<br><sub>⭐⭐⭐</sub> | `Next.js 14` · `Drizzle` · `Neon` · `Clerk` · `Stripe` · `React Admin` · `ElevenLabs` · `Zustand` | Server Actions + Gamified Domain Model | Domain state · progression systems · subscriptions · admin panel | Plataforma de aprendizado gamificado com cursos, lições, XP, corações, leaderboard, quests, loja e plano Pro. |
-| **[Beatstream](https://github.com/renatomf/nextjs-beatstream)**<br><sub>⭐⭐</sub> | `Next.js 14` · `Supabase` · `Stripe` · `Supabase Storage` · `Zustand` · `React Hook Form` | BaaS + Subscription Architecture | Media storage · persistent player state · subscriptions · webhook synchronization | Plataforma de streaming musical com upload de faixas, biblioteca pessoal, player persistente, favoritos e assinatura Premium sincronizada por webhook. |
-| **[Havn](https://github.com/renatomf/nextjs-havn)**<br><sub>⭐⭐</sub> | `Next.js 13` · `NextAuth.js` · `Prisma` · `Leaflet` · `Cloudinary` · `SWR` · `Axios` | API-Driven Marketplace | Search · availability · reservation flows · geolocation · media management | Marketplace de acomodações com criação de anúncios, mapas, filtros, disponibilidade, reservas, favoritos e área de anfitrião. |
 
 <details>
 <summary><b>MediMeet — arquitetura em detalhe</b></summary>
@@ -454,6 +494,10 @@ src/modules/<módulo>/
 
 </details>
 
+| Projeto | Stack | Arquitetura | Foco de Engenharia | Detalhes |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Marketto](https://github.com/renatomf/nextjs-marketto)**<br><sub>⭐⭐⭐</sub> | `Next.js 15` · `Sanity` · `Prisma` · `Oslo` · `Zustand` · `Zod` · `Tailwind CSS` | Headless Commerce + Custom Authentication | Content/data separation · session management · transactional persistence · client state | E-commerce com catálogo gerenciado por headless CMS, carrinho sincronizado entre cliente e servidor e autenticação própria baseada em sessões. |
+
 <details>
 <summary><b>Marketto — arquitetura em detalhe</b></summary>
 
@@ -465,6 +509,10 @@ src/modules/<módulo>/
 - Server actions para autenticação e carrinho.
 
 </details>
+
+| Projeto | Stack | Arquitetura | Foco de Engenharia | Detalhes |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Taskify](https://github.com/renatomf/nextjs-taskify)**<br><sub>⭐⭐⭐</sub> | `Next.js 14` · `Prisma` · `Clerk` · `Stripe` · `TanStack Query` · `Zustand` · `DnD` | Multi-Tenant SaaS + Server Actions | Tenant isolation · authorization · optimistic interactions · audit logging · billing | SaaS de gestão de projetos com organizações, boards, listas, cards, drag-and-drop, audit log e planos de assinatura. |
 
 <details>
 <summary><b>Taskify — arquitetura em detalhe</b></summary>
@@ -479,6 +527,10 @@ src/modules/<módulo>/
 
 </details>
 
+| Projeto | Stack | Arquitetura | Foco de Engenharia | Detalhes |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Lingo](https://github.com/renatomf/nextjs-lingo)**<br><sub>⭐⭐⭐</sub> | `Next.js 14` · `Drizzle` · `Neon` · `Clerk` · `Stripe` · `React Admin` · `ElevenLabs` · `Zustand` | Server Actions + Gamified Domain Model | Domain state · progression systems · subscriptions · admin panel | Plataforma de aprendizado gamificado com cursos, lições, XP, corações, leaderboard, quests, loja e plano Pro. |
+
 <details>
 <summary><b>Lingo — arquitetura em detalhe</b></summary>
 
@@ -491,6 +543,10 @@ src/modules/<módulo>/
 
 </details>
 
+| Projeto | Stack | Arquitetura | Foco de Engenharia | Detalhes |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Beatstream](https://github.com/renatomf/nextjs-beatstream)**<br><sub>⭐⭐</sub> | `Next.js 14` · `Supabase` · `Stripe` · `Supabase Storage` · `Zustand` · `React Hook Form` | BaaS + Subscription Architecture | Media storage · persistent player state · subscriptions · webhook synchronization | Plataforma de streaming musical com upload de faixas, biblioteca pessoal, player persistente, favoritos e assinatura Premium sincronizada por webhook. |
+
 <details>
 <summary><b>Beatstream — arquitetura em detalhe</b></summary>
 
@@ -502,6 +558,10 @@ src/modules/<módulo>/
 - **Assinatura sincronizada por webhook:** produtos, preços e assinaturas do Stripe replicados no Supabase com o client admin.
 
 </details>
+
+| Projeto | Stack | Arquitetura | Foco de Engenharia | Detalhes |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Havn](https://github.com/renatomf/nextjs-havn)**<br><sub>⭐⭐</sub> | `Next.js 13` · `NextAuth.js` · `Prisma` · `Leaflet` · `Cloudinary` · `SWR` · `Axios` | API-Driven Marketplace | Search · availability · reservation flows · geolocation · media management | Marketplace de acomodações com criação de anúncios, mapas, filtros, disponibilidade, reservas, favoritos e área de anfitrião. |
 
 <details>
 <summary><b>Havn — arquitetura em detalhe</b></summary>
