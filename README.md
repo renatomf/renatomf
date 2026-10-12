@@ -23,6 +23,75 @@ Projetos organizados por domínio técnico, arquitetura e principais desafios de
 
 ---
 
+## Fintech & Mobile
+
+| Projeto | Stack | Arquitetura | Foco de Engenharia | Detalhes |
+| :--- | :--- | :--- | :--- | :--- |
+| **[next bank](https://github.com/renatomf/next-bank)**<br><sub>⭐⭐⭐⭐⭐</sub> | `Flutter` · `Dart` · `Riverpod` · `GoRouter` · `Dio` · `Freezed` · `Node.js` · `TypeScript` · `Fastify` · `Zod` · `PostgreSQL` · `dbmate` · `Next.js` · `Turborepo` · `Docker` · `GitHub Actions` · `Sentry` | Modular Monolith + Hexagonal Architecture + DDD na API · Clean Architecture por feature no app Flutter | Double-entry ledger · idempotência · controle de concorrência · threat model (ASVS L2 / MASVS) · rotação de tokens · LGPD · TDD | Banco digital com app Flutter, API e backoffice: Pix sem duplicidade, saldo e extrato vindos de um ledger que só aceita inclusão e segurança em cada camada, construído com as práticas de um banco em produção. Em construção (V1). Arquitetura detalhada abaixo. |
+
+<details>
+<summary><b>next bank — arquitetura em detalhe</b></summary>
+
+<br>
+
+**Monorepo Turborepo** com `apps/mobile` (Flutter), `apps/api` (Node.js + Fastify) e, na fase 3, o backoffice em Next.js com perfis de acesso e dupla aprovação.
+
+**API: monólito modular com arquitetura hexagonal.** Domínio dividido em contextos delimitados — `identity`, `accounts`, `ledger`, `payments` e `audit` — cada um com as mesmas fronteiras:
+
+```
+apps/api/src/modules/<módulo>/
+├── domain/ # regras puras: agregados, invariantes, erros do catálogo
+├── application/ # casos de uso + portas (ports.ts)
+├── infrastructure/ # adaptadores: Postgres (SQL puro), argon2id, jose, AES-GCM
+├── http/ # rotas Fastify com schemas Zod / OpenAPI
+└── index.ts # API pública do módulo
+```
+
+- **Fronteiras verificadas no CI:** dependency-cruiser na API e teste de arquitetura em Dart no app; violação quebra o build.
+- **SQL puro com `pg` e migrations `dbmate`**, sem ORM: queries parametrizadas, um schema por contexto e índices conferidos com `EXPLAIN ANALYZE`.
+- **Casos de uso entre módulos** (cadastro de cliente = identidade + conta + contas do ledger) compostos numa unit of work transacional.
+- **Contrato OpenAPI** gerado a partir dos schemas e erros no formato Problem Details, sem stack trace nem detalhes internos.
+
+**App Flutter: Clean Architecture por feature.**
+
+- `domain/` em Dart puro (entidades e interfaces de repositório), `data/` implementa as interfaces e `presentation/` (providers Riverpod e widgets) depende só do domínio.
+- Features não importam outras features; `main.dart` é a única raiz de composição.
+- Navegação com GoRouter, HTTP com Dio e modelos imutáveis com Freezed; tokens só em Keychain/Keystore e build de release ofuscado.
+
+**Integridade financeira.**
+
+- **Ledger de partidas dobradas append-only:** saldo e extrato derivam dos lançamentos; correção só por estorno.
+- **`Money` em centavos inteiros:** ponto flutuante para valores é proibido.
+- **Pix idempotente:** chave de idempotência + fingerprint HMAC da requisição; reenviar após queda de rede não duplica a transferência.
+- **Controle de concorrência:** transação única com locks em ordem determinística impede saldo negativo, provado por testes com requisições simultâneas sobre o mesmo saldo.
+- Domínio do Pix com chaves, EndToEndId e limites de transferência modelados explicitamente.
+
+**Segurança desde o projeto.**
+
+- **Threat model + OWASP ASVS L2 / MASVS:** toda ameaça nova vira uma linha no threat model e um teste.
+- **Autenticação:** senha e PIN com argon2id, PIN de transação validado no servidor com bloqueio por tentativas, access token JWT (jose) e refresh token com rotação e detecção de reuso.
+- **LGPD:** CPF e chaves Pix criptografados com AES-GCM e redação automática de PII nos logs (Pino) e no Sentry.
+- **Autorização negada por padrão:** todo recurso tem teste de IDOR (usuário A acessando dado de B → 404).
+
+**Estratégia de testes (TDD).**
+
+| Nível | Como |
+| :--- | :--- |
+| Domínio | TDD estrito: cada invariante e cada erro do catálogo vira teste |
+| Casos de uso | Portas falsas e `Clock` controlável |
+| API | Outside-in: o teste HTTP contra Postgres real (Docker) é escrito antes da rota |
+| Segurança | IDOR, idempotência, concorrência, rate limit, reuso de refresh token e bloqueio de PIN — o teste do ataque vem antes da defesa |
+| Flutter | TDD em notifiers e repositórios + teste de arquitetura |
+| E2E | Fluxo crítico: login → Pix → comprovante → extrato |
+
+**CI obrigatório para merge:** lint, typecheck e `flutter analyze` sem warnings, cobertura mínima em `domain/` e `application/`, gitleaks (segredos, também no pre-commit), Semgrep (SAST) e osv-scanner (dependências).
+
+**Engenharia como prática:** desenho de cada fatia antes do código, ADRs com alternativas e consequências, modelo de domínio, diagramas C4 e de sequência, Conventional Commits com o ciclo TDD visível no histórico e changelog.
+
+</details>
+
+---
+
 ## AI Engineering
 
 | Projeto | Stack | Arquitetura | Foco de Engenharia | Detalhes |
@@ -474,3 +543,10 @@ src/modules/<módulo>/
 - `Ports & Adapters`
 - `Architecture Testing`
 - `LLM Evals`
+- `Hexagonal Architecture`
+- `Double-Entry Ledger`
+- `Idempotency`
+- `Concurrency Control`
+- `Threat Modeling`
+- `Test-Driven Development`
+- `Mobile Clean Architecture`
